@@ -1,0 +1,20 @@
+setwd("C:/Users/taguiame/OneDrive - University of Manitoba/Desktop/RNA Seq Project")
+
+#Remember to load the packages needed ####
+library(DESeq2)
+
+#Constructing a  DESeqDataSet Object
+dds <- DESeqDataSetFromMatrix(countData = read_counts,
+                              colData = Col_data_1,
+                              design = ~ Condition)
+dds
+
+dds <- DESeq(dds)
+
+#plot dispersion estimates to examine normalization
+plotDispEsts(dds)
+
+#checking results
+res <- results(dds)
+res
+resultsNames(dds)
