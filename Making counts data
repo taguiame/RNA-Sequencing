@@ -1,0 +1,34 @@
+setwd("C:/Users/taguiame/OneDrive - University of Manitoba/Desktop/RNA Seq Project")
+
+#Remember to load the packages needed ####
+library(dplyr)
+
+# Making Counts Data ####
+Counts1 <- dplyr::inner_join(HIV_TB_Counts, HIV_Counts, by = "Geneid")
+Counts2 <- dplyr::inner_join(TB_Counts, Non_infected_Counts, by ="Geneid")
+
+Counts <- dplyr::inner_join(Counts1, Counts2, by = "Geneid")
+view(Counts)
+
+Counts_Clean <- Counts[,-1]
+view(Counts_Clean)
+
+rownames(Counts_Clean) <- Counts[,1]
+view(Counts_Clean)
+
+# Making Col Data ####
+Col_data <- read.csv("ColData.csv")
+Col_data <- as.data.frame(Col_data)
+
+Col_data_1 <- Col_data[,-1]
+rownames(Col_data_1) <- Col_data[,1]
+
+view(Col_data_1)
+
+# making sure the row names in colData matches to column names in counts data ####
+all(colnames(Counts_Clean) %in% rownames(Col_data_1))
+
+# are they in the same order?
+all(colnames(Counts_Clean) == rownames(Col_data_1))
+
+
