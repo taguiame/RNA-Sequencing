@@ -1,0 +1,1150 @@
+setwd("C:/Users/taguiame/OneDrive - University of Manitoba/Desktop/RNA Seq Project")
+
+#Remember to load the packages needed ####
+library(dplyr)
+
+# Tidy up TB HIV Data ####
+names(HIV_TB_01)
+head(HIV_TB_01)
+summary(HIV_TB_01)
+
+HIV_TB_01_clean <-
+  HIV_TB_01 %>% dplyr:: rename(TB_HIV_1 = TB.and.HIV.infected.subject.TB_HIV_1)
+
+names(HIV_TB_01_clean)
+HIV_TB_01_df <- as.data.frame(HIV_TB_01_clean)
+
+names(HIV_TB_02)
+head(HIV_TB_02)
+summary(HIV_TB_02)
+
+HIV_TB_02_clean <-
+  HIV_TB_02 %>% dplyr:: rename(TB_HIV_2 = TB.and.HIV.infected.subject.TB_HIV_2)
+
+names(HIV_TB_02_clean)
+HIV_TB_02_df <- as.data.frame(HIV_TB_02_clean)
+
+names(HIV_TB_03)
+head(HIV_TB_03)
+summary(HIV_TB_03)
+
+HIV_TB_03_clean <-
+  HIV_TB_03 %>% dplyr:: rename(TB_HIV_3 = TB.and.HIV.infected.subject.TB_HIV_3)
+
+names(HIV_TB_03_clean)
+HIV_TB_03_df <- as.data.frame(HIV_TB_03_clean)
+
+names(HIV_TB_05)
+head(HIV_TB_05)
+summary(HIV_TB_05)
+
+HIV_TB_05_clean <-
+  HIV_TB_05 %>% dplyr:: rename(TB_HIV_5 = TB.and.HIV.infected.subject.TB_HIV_5)
+
+names(HIV_TB_05_clean)
+HIV_TB_05_df <- as.data.frame(HIV_TB_05_clean)
+
+names(HIV_TB_06)
+head(HIV_TB_06)
+summary(HIV_TB_06)
+
+HIV_TB_06_clean <-
+  HIV_TB_06 %>% dplyr:: rename(TB_HIV_6 = TB.and.HIV.infected.subject.TB_HIV_6)
+
+names(HIV_TB_06_clean)
+HIV_TB_06_df <- as.data.frame(HIV_TB_06_clean)
+
+names(HIV_TB_09)
+head(HIV_TB_09)
+summary(HIV_TB_09)
+
+HIV_TB_09_clean <-
+  HIV_TB_09 %>% dplyr:: rename(TB_HIV_9 = TB.and.HIV.infected.subject.TB_HIV_9)
+
+names(HIV_TB_09_clean)
+HIV_TB_09_df <- as.data.frame(HIV_TB_09_clean)
+
+names(HIV_TB_13)
+head(HIV_TB_13)
+summary(HIV_TB_13)
+
+HIV_TB_13_clean <-
+  HIV_TB_13 %>% dplyr:: rename(TB_HIV_13 = TB.and.HIV.infected.subject.TB_HIV_13)
+
+names(HIV_TB_13_clean)
+HIV_TB_13_df <- as.data.frame(HIV_TB_13_clean)
+
+names(HIV_TB_15)
+head(HIV_TB_15)
+summary(HIV_TB_15)
+
+HIV_TB_15_clean <-
+  HIV_TB_15 %>% dplyr:: rename(TB_HIV_15 = TB.and.HIV.infected.subject.TB_HIV_15)
+
+names(HIV_TB_15_clean)
+HIV_TB_15_df <- as.data.frame(HIV_TB_15_clean)
+
+names(HIV_TB_20)
+head(HIV_TB_20)
+summary(HIV_TB_20)
+
+HIV_TB_20_clean <-
+  HIV_TB_20 %>% dplyr:: rename(TB_HIV_20 = TB.and.HIV.infected.subject.TB_HIV_20)
+
+names(HIV_TB_20_clean)
+HIV_TB_20_df <- as.data.frame(HIV_TB_20_clean)
+
+names(HIV_TB_21)
+head(HIV_TB_21)
+summary(HIV_TB_21)
+
+HIV_TB_21_clean <-
+  HIV_TB_21 %>% dplyr:: rename(TB_HIV_21 = TB.and.HIV.infected.subject.TB_HIV_21)
+
+names(HIV_TB_21_clean)
+HIV_TB_21_df <- as.data.frame(HIV_TB_21_clean)
+
+names(HIV_TB_22)
+head(HIV_TB_22)
+summary(HIV_TB_22)
+
+HIV_TB_22_clean <-
+  HIV_TB_22 %>% dplyr:: rename(TB_HIV_22 = TB.and.HIV.infected.subject.TB_HIV_22)
+
+names(HIV_TB_22_clean)
+HIV_TB_22_df <- as.data.frame(HIV_TB_22_clean)
+
+names(HIV_TB_23)
+head(HIV_TB_23)
+summary(HIV_TB_23)
+
+HIV_TB_23_clean <-
+  HIV_TB_23 %>% dplyr:: rename(TB_HIV_23 = TB.and.HIV.infected.subject.TB_HIV_23)
+
+names(HIV_TB_23_clean)
+HIV_TB_23_df <- as.data.frame(HIV_TB_23_clean)
+
+names(HIV_TB_24)
+head(HIV_TB_24)
+summary(HIV_TB_24)
+
+HIV_TB_24_clean <-
+  HIV_TB_24 %>% dplyr:: rename(TB_HIV_24 = TB.and.HIV.infected.subject.TB_HIV_24)
+
+names(HIV_TB_24_clean)
+HIV_TB_24_df <- as.data.frame(HIV_TB_24_clean)
+
+names(HIV_TB_25)
+head(HIV_TB_25)
+summary(HIV_TB_25)
+
+HIV_TB_25_clean <-
+  HIV_TB_25 %>% dplyr:: rename(TB_HIV_25 = TB.and.HIV.infected.subject.TB_HIV_25)
+
+names(HIV_TB_25_clean)
+HIV_TB_25_df <- as.data.frame(HIV_TB_25_clean)
+
+names(HIV_TB_31)
+head(HIV_TB_31)
+summary(HIV_TB_31)
+
+HIV_TB_31_clean <-
+  HIV_TB_31 %>% dplyr:: rename(TB_HIV_31 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.001__cb__)
+
+names(HIV_TB_31_clean)
+HIV_TB_31_df <- as.data.frame(HIV_TB_31_clean)
+
+names(HIV_TB_32)
+head(HIV_TB_32)
+summary(HIV_TB_32)
+
+HIV_TB_32_clean <-
+  HIV_TB_32 %>% dplyr:: rename(TB_HIV_32 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.002__cb__)
+
+names(HIV_TB_32_clean)
+HIV_TB_32_df <- as.data.frame(HIV_TB_32_clean)
+
+names(HIV_TB_33)
+head(HIV_TB_33)
+summary(HIV_TB_33)
+
+HIV_TB_33_clean <-
+  HIV_TB_33 %>% dplyr:: rename(TB_HIV_33 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.003__cb__)
+
+names(HIV_TB_33_clean)
+HIV_TB_33_df <- as.data.frame(HIV_TB_33_clean)
+
+names(HIV_TB_34)
+head(HIV_TB_34)
+summary(HIV_TB_34)
+
+HIV_TB_34_clean <-
+  HIV_TB_34 %>% dplyr:: rename(TB_HIV_34 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.004__cb__)
+
+names(HIV_TB_34_clean)
+HIV_TB_34_df <- as.data.frame(HIV_TB_34_clean)
+
+names(HIV_TB_35)
+head(HIV_TB_35)
+summary(HIV_TB_35)
+
+HIV_TB_35_clean <-
+  HIV_TB_35 %>% dplyr:: rename(TB_HIV_35 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.005__cb__)
+
+names(HIV_TB_35_clean)
+HIV_TB_35_df <- as.data.frame(HIV_TB_35_clean)
+
+names(HIV_TB_36)
+head(HIV_TB_36)
+summary(HIV_TB_36)
+
+HIV_TB_36_clean <-
+  HIV_TB_36 %>% dplyr:: rename(TB_HIV_36 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.006__cb__)
+
+names(HIV_TB_36_clean)
+HIV_TB_36_df <- as.data.frame(HIV_TB_36_clean)
+
+names(HIV_TB_37)
+head(HIV_TB_37)
+summary(HIV_TB_37)
+
+HIV_TB_37_clean <-
+  HIV_TB_37 %>% dplyr:: rename(TB_HIV_37 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.007__cb__)
+
+names(HIV_TB_37_clean)
+HIV_TB_37_df <- as.data.frame(HIV_TB_37_clean)
+
+names(HIV_TB_38)
+head(HIV_TB_38)
+summary(HIV_TB_38)
+
+HIV_TB_38_clean <-
+  HIV_TB_38 %>% dplyr:: rename(TB_HIV_38 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.008__cb__)
+
+names(HIV_TB_38_clean)
+HIV_TB_38_df <- as.data.frame(HIV_TB_38_clean)
+
+names(HIV_TB_39)
+head(HIV_TB_39)
+summary(HIV_TB_39)
+
+HIV_TB_39_clean <-
+  HIV_TB_39 %>% dplyr:: rename(TB_HIV_39 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.009__cb__)
+
+names(HIV_TB_39_clean)
+HIV_TB_39_df <- as.data.frame(HIV_TB_39_clean)
+
+names(HIV_TB_40)
+head(HIV_TB_40)
+summary(HIV_TB_40)
+
+HIV_TB_40_clean <-
+  HIV_TB_40 %>% dplyr:: rename(TB_HIV_40 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.010__cb__)
+
+names(HIV_TB_40_clean)
+HIV_TB_40_df <- as.data.frame(HIV_TB_40_clean)
+
+names(HIV_TB_41)
+head(HIV_TB_41)
+summary(HIV_TB_41)
+
+HIV_TB_41_clean <-
+  HIV_TB_41 %>% dplyr:: rename(TB_HIV_41 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.011__cb__)
+
+names(HIV_TB_41_clean)
+HIV_TB_41_df <- as.data.frame(HIV_TB_41_clean)
+
+names(HIV_TB_42)
+head(HIV_TB_42)
+summary(HIV_TB_42)
+
+HIV_TB_42_clean <-
+  HIV_TB_42 %>% dplyr:: rename(TB_HIV_42 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.012__cb__)
+
+names(HIV_TB_42_clean)
+HIV_TB_42_df <- as.data.frame(HIV_TB_42_clean)
+
+names(HIV_TB_43)
+head(HIV_TB_43)
+summary(HIV_TB_43)
+
+HIV_TB_43_clean <-
+  HIV_TB_43 %>% dplyr:: rename(TB_HIV_43 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.013__cb__)
+
+names(HIV_TB_43_clean)
+HIV_TB_43_df <- as.data.frame(HIV_TB_43_clean)
+
+names(HIV_TB_44)
+head(HIV_TB_44)
+summary(HIV_TB_44)
+
+HIV_TB_44_clean <-
+  HIV_TB_44 %>% dplyr:: rename(TB_HIV_44 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.014__cb__)
+
+names(HIV_TB_44_clean)
+HIV_TB_44_df <- as.data.frame(HIV_TB_44_clean)
+
+names(HIV_TB_45)
+head(HIV_TB_45)
+summary(HIV_TB_45)
+
+HIV_TB_45_clean <-
+  HIV_TB_45 %>% dplyr:: rename(TB_HIV_45 = Positive.for.TB.X.HIVX.ART.naXve.__ob__IR.1.015__cb__)
+
+names(HIV_TB_45_clean)
+HIV_TB_45_df <- as.data.frame(HIV_TB_45_clean)
+
+# Tidy Up HIV Data ####
+#HIV  4 009 data
+names(HIV_4_009)
+head(HIV_4_009)
+summary(HIV_4_009)
+
+HIV_4_009_clean <- 
+  HIV_4_009 %>% dplyr::rename(HIV_10 = HISAT2.__ob__4_009_0_2__cb__..BAM.)
+
+names(HIV_4_009_clean)
+HIV_4_009_df <- as.data.frame(HIV_4_009_clean)
+
+#HIV  4 017 data
+names(HIV_4_017)
+head(HIV_4_017)
+summary(HIV_4_017)
+
+HIV_4_017_clean <- 
+  HIV_4_017 %>% dplyr::rename(HIV_17 = HISAT2.__ob__4_017_0_2__cb__..BAM.)
+
+names(HIV_4_017_clean)
+HIV_4_017_df <- as.data.frame(HIV_4_017_clean)
+
+#HIV  4 020 data
+names(HIV_4_020)
+head(HIV_4_020)
+summary(HIV_4_020)
+
+HIV_4_020_clean <- 
+  HIV_4_020 %>% dplyr::rename(HIV_20 = HISAT2.__ob__4_020_0_2__cb__..BAM.)
+
+names(HIV_4_020_clean)
+HIV_4_020_df <- as.data.frame(HIV_4_020_clean)
+
+#HIV  4 021 data
+names(HIV_4_021)
+head(HIV_4_021)
+summary(HIV_4_021)
+
+HIV_4_021_clean <- 
+  HIV_4_021 %>% dplyr::rename(HIV_21 = HISAT2.__ob__4_021_0_2__cb__..BAM.)
+
+names(HIV_4_021_clean)
+HIV_4_021_df <- as.data.frame(HIV_4_021_clean)
+
+#HIV  4 022 data
+names(HIV_4_022)
+head(HIV_4_022)
+summary(HIV_4_022)
+
+HIV_4_022_clean <- 
+  HIV_4_022 %>% dplyr::rename(HIV_22 = HISAT2.__ob__4_022_0_2__cb__..BAM.)
+
+names(HIV_4_022_clean)
+HIV_4_022_df <- as.data.frame(HIV_4_022_clean)
+
+#HIV  4 023 data
+names(HIV_4_023)
+head(HIV_4_023)
+summary(HIV_4_023)
+
+HIV_4_023_clean <- 
+  HIV_4_023 %>% dplyr::rename(HIV_23 = HISAT2.__ob__4_023_0_2__cb__..BAM.)
+
+names(HIV_4_023_clean)
+HIV_4_023_df <- as.data.frame(HIV_4_023_clean)
+
+#HIV 6 003 data
+names(HIV_6_003)
+head(HIV_6_003)
+summary(HIV_6_003)
+
+HIV_6_003_clean <- 
+  HIV_6_003 %>% dplyr::rename(HIV_3 = HISAT2.__ob__6_003_0_2__cb__..aligned.reads..BAM.) 
+
+names(HIV_6_003_clean)
+HIV_6_003_df <- as.data.frame(HIV_6_003_clean)
+
+#HIV 6 009 data
+names(HIV_6_009)
+head(HIV_6_009)
+summary(HIV_6_009)
+
+HIV_6_009_clean <- 
+  HIV_6_009 %>% dplyr::rename(HIV_9 = HISAT2.__ob__6_009_0_2__cb__..aligned.reads..BAM.)
+
+names(HIV_6_009_clean)
+HIV_6_009_df <- as.data.frame(HIV_6_009_clean)
+
+#HIV 6 012 data
+names(HIV_6_012)
+head(HIV_6_012)
+summary(HIV_6_012)
+
+HIV_6_012_clean <- 
+  HIV_6_012 %>% dplyr::rename(HIV_12 = HISAT2.__ob__6_012_0_2__cb__..aligned.reads..BAM.)
+
+names(HIV_6_012_clean)
+HIV_6_012_df <- as.data.frame(HIV_6_012_clean)
+
+#HIV 6 015 data
+names(HIV_6_015)
+head(HIV_6_015)
+summary(HIV_6_015)
+
+HIV_6_015_clean <- 
+  HIV_6_015 %>% dplyr::rename(HIV_15 = HISAT2.__ob__6_015_0_2__cb__..aligned.reads..BAM.)
+
+names(HIV_6_015_clean)
+HIV_6_015_df <- as.data.frame(HIV_6_015_clean)
+
+#HIV 6 016 data
+names(HIV_6_016)
+head(HIV_6_016)
+summary(HIV_6_016)
+
+HIV_6_016_clean <- 
+  HIV_6_016 %>% dplyr::rename(HIV_16 = HISAT2.__ob__6_016_0_2__cb__..aligned.reads..BAM.)
+
+names(HIV_6_016_clean)
+HIV_6_016_df <- as.data.frame(HIV_6_016_clean)
+
+#HIV 6 018 data
+names(HIV_6_018)
+head(HIV_6_018)
+summary(HIV_6_018)
+
+HIV_6_018_clean <- 
+  HIV_6_018 %>% dplyr::rename(HIV_18 = HISAT2.__ob__6_018_0_2__cb__..aligned.reads..BAM.)
+
+names(HIV_6_018_clean)
+HIV_6_018_df <- as.data.frame(HIV_6_018_clean)
+
+names(HIV_30)
+head(HIV_30)
+summary(HIV_30)
+
+HIV_30_clean <-
+  HIV_30 %>% dplyr::rename(HIV_30 = HIV.only.infected.subject.HIV_4)
+
+names(HIV_30_clean)
+HIV_30_df <- as.data.frame(HIV_30_clean)
+
+names(HIV_31)
+head(HIV_31)
+summary(HIV_31)
+
+HIV_31_clean <-
+  HIV_31 %>% dplyr::rename(HIV_31 = HIV.only.infected.subject.HIV_7)
+
+names(HIV_31_clean)
+HIV_31_df <- as.data.frame(HIV_31_clean)
+
+names(HIV_32)
+head(HIV_32)
+summary(HIV_32)
+
+HIV_32_clean <-
+  HIV_32 %>% dplyr::rename(HIV_32 = HIV.only.infected.subject.HIV_8)
+
+names(HIV_32_clean)
+HIV_32_df <- as.data.frame(HIV_32_clean)
+
+names(HIV_33)
+head(HIV_33)
+summary(HIV_33)
+
+HIV_33_clean <-
+  HIV_33 %>% dplyr::rename(HIV_33 = HIV.only.infected.subject.HIV_10)
+
+names(HIV_33_clean)
+HIV_33_df <- as.data.frame(HIV_33_clean)
+
+names(HIV_34)
+head(HIV_34)
+summary(HIV_34)
+
+HIV_34_clean <-
+  HIV_34 %>% dplyr::rename(HIV_34 = HIV.only.infected.subject.HIV_11)
+
+names(HIV_34_clean)
+HIV_34_df <- as.data.frame(HIV_34_clean)
+
+names(HIV_35)
+head(HIV_35)
+summary(HIV_35)
+
+HIV_35_clean <-
+  HIV_35 %>% dplyr::rename(HIV_35 = HIV.only.infected.subject.HIV_12)
+
+names(HIV_35_clean)
+HIV_35_df <- as.data.frame(HIV_35_clean)
+
+names(HIV_36)
+head(HIV_36)
+summary(HIV_36)
+
+HIV_36_clean <-
+  HIV_36 %>% dplyr::rename(HIV_36 = HIV.only.infected.subject.HIV_14)
+
+names(HIV_36_clean)
+HIV_36_df <- as.data.frame(HIV_36_clean)
+
+names(HIV_37)
+head(HIV_37)
+summary(HIV_37)
+
+HIV_37_clean <-
+  HIV_37 %>% dplyr::rename(HIV_37 = HIV.only.infected.subject.HIV_16)
+
+names(HIV_37_clean)
+HIV_37_df <- as.data.frame(HIV_37_clean)
+
+names(HIV_38)
+head(HIV_38)
+summary(HIV_38)
+
+HIV_38_clean <-
+  HIV_38 %>% dplyr::rename(HIV_38 = HIV.only.infected.subject.HIV_17)
+
+names(HIV_38_clean)
+HIV_38_df <- as.data.frame(HIV_38_clean)
+
+names(HIV_39)
+head(HIV_39)
+summary(HIV_39)
+
+HIV_39_clean <-
+  HIV_39 %>% dplyr::rename(HIV_39 = HIV.only.infected.subject.HIV_18)
+
+names(HIV_39_clean)
+HIV_39_df <- as.data.frame(HIV_39_clean)
+
+names(HIV_40)
+head(HIV_40)
+summary(HIV_40)
+
+HIV_40_clean <-
+  HIV_40 %>% dplyr::rename(HIV_40 = HIV.only.infected.subject.HIV_19)
+
+names(HIV_40_clean)
+HIV_40_df <- as.data.frame(HIV_40_clean)
+
+# Tidy up Clinical TB Data ####
+#Clinical TB 3 022 data
+names(Clinical_TB_3_022)
+head(Clinical_TB_3_022)
+summary(Clinical_TB_3_022)
+
+Clinical_TB_3_022_clean <- 
+  Clinical_TB_3_022 %>% dplyr::rename(TB_22 = HISAT2.__ob__3_022_0_2__cb__..aligned.reads..BAM.)
+
+names(Clinical_TB_3_022_clean)
+Clinical_TB_3_022_df <- as.data.frame(Clinical_TB_3_022_clean)
+
+#Clinical TB 3 029 data
+names(Clinical_TB_3_029)
+head(Clinical_TB_3_029)
+summary(Clinical_TB_3_029)
+
+Clinical_TB_3_029_clean <- 
+  Clinical_TB_3_029 %>% dplyr::rename(TB_29 = HISAT2.__ob__3_029_0_2__cb__..aligned.reads..BAM.)
+
+names(Clinical_TB_3_029_clean)
+Clinical_TB_3_029_df <- as.data.frame(Clinical_TB_3_029_clean)
+
+#Clinical TB 3 031 data
+names(Clinical_TB_3_031)
+head(Clinical_TB_3_031)
+summary(Clinical_TB_3_031)
+
+Clinical_TB_3_031_clean <- 
+  Clinical_TB_3_031 %>% dplyr::rename(TB_31 = HISAT2.__ob__3_031_0_2__cb__..aligned.reads..BAM.)
+
+names(Clinical_TB_3_031_clean)
+Clinical_TB_3_031_df <- as.data.frame(Clinical_TB_3_031_clean)
+
+#Clinical TB 3 032 data
+names(Clinical_TB_3_032)
+head(Clinical_TB_3_032)
+summary(Clinical_TB_3_032)
+
+Clinical_TB_3_032_clean <- 
+  Clinical_TB_3_032 %>% dplyr::rename(TB_32 = HISAT2.__ob__3_032_0_2__cb__..aligned.reads..BAM.)
+
+names(Clinical_TB_3_032_clean)
+Clinical_TB_3_032_df <- as.data.frame(Clinical_TB_3_032_clean)
+
+#Clinical TB 3 033 data
+names(Clinical_TB_3_033)
+head(Clinical_TB_3_033)
+summary(Clinical_TB_3_033)
+
+Clinical_TB_3_033_clean <- 
+  Clinical_TB_3_033 %>% dplyr::rename(TB_33 = HISAT2.__ob__3_033_0_2__cb__..aligned.reads..BAM.)
+
+names(Clinical_TB_3_033_clean)
+Clinical_TB_3_033_df <- as.data.frame(Clinical_TB_3_033_clean)
+
+#Clinical TB 3 035 data
+names(Clinical_TB_3_035)
+head(Clinical_TB_3_035)
+summary(Clinical_TB_3_035)
+
+Clinical_TB_3_035_clean <- 
+  Clinical_TB_3_035 %>% dplyr::rename(TB_35 = HISAT2.__ob__3_035_0_2__cb__..aligned.reads..BAM.)
+
+names(Clinical_TB_3_035_clean)
+Clinical_TB_3_035_df <- as.data.frame(Clinical_TB_3_035_clean)
+
+#Clinical TB 3 039 data
+names(Clinical_TB_3_039)
+head(Clinical_TB_3_039)
+summary(Clinical_TB_3_039)
+
+Clinical_TB_3_039_clean <- 
+  Clinical_TB_3_039 %>% dplyr::rename(TB_39 = HISAT2.__ob__3_039_0_2__cb__..aligned.reads..BAM.)
+
+names(Clinical_TB_3_039_clean)
+Clinical_TB_3_039_df <- as.data.frame(Clinical_TB_3_039_clean)
+
+#Clinical TB 3 041 data
+names(Clinical_TB_3_041)
+head(Clinical_TB_3_041)
+summary(Clinical_TB_3_041)
+
+Clinical_TB_3_041_clean <- 
+  Clinical_TB_3_041 %>% dplyr::rename(TB_41 = HISAT2.__ob__3_041_0_2__cb__..aligned.reads..BAM.)
+
+names(Clinical_TB_3_041_clean)
+Clinical_TB_3_041_df <- as.data.frame(Clinical_TB_3_041_clean)
+
+#Clinical TB 3 049 data
+names(Clinical_TB_3_049)
+head(Clinical_TB_3_049)
+summary(Clinical_TB_3_049)
+
+Clinical_TB_3_049_clean <- 
+  Clinical_TB_3_049 %>% dplyr::rename(TB_49 = HISAT2.__ob__3_049_0_2__cb__..aligned.reads..BAM.)
+
+names(Clinical_TB_3_049_clean)
+Clinical_TB_3_049_df <- as.data.frame(Clinical_TB_3_049_clean)
+
+#Clinical TB 3 050 data
+names(Clinical_TB_3_050)
+head(Clinical_TB_3_050)
+summary(Clinical_TB_3_050)
+
+Clinical_TB_3_050_clean <- 
+  Clinical_TB_3_050 %>% dplyr::rename(TB_50 = HISAT2.__ob__3_050_0_2__cb__..aligned.reads..BAM.)
+
+names(Clinical_TB_3_050_clean)
+Clinical_TB_3_050_df <- as.data.frame(Clinical_TB_3_050_clean)
+
+
+#Clinical TB 61 data
+names(TB_61)
+head(TB_61)
+summary(TB_61)
+
+TB_61_clean <- 
+  TB_61 %>% dplyr::rename(TB_61 = London.Active.TB.1)
+
+names(TB_61_clean)
+TB_61_df <- as.data.frame(TB_61_clean)
+
+#Clinical TB 62 data
+names(TB_62)
+head(TB_62)
+summary(TB_62)
+
+TB_62_clean <- 
+  TB_62 %>% dplyr::rename(TB_62 = London.Active.TB.2)
+
+names(TB_62_clean)
+TB_62_df <- as.data.frame(TB_62_clean)
+
+#Clinical TB 63 data
+names(TB_63)
+head(TB_63)
+summary(TB_63)
+
+TB_63_clean <- 
+  TB_63 %>% dplyr::rename(TB_63 = London.Active.TB.3)
+
+names(TB_63_clean)
+TB_63_df <- as.data.frame(TB_63_clean)
+
+#Clinical TB 64 data
+names(TB_64)
+head(TB_64)
+summary(TB_64)
+
+TB_64_clean <- 
+  TB_64 %>% dplyr::rename(TB_64 = London.Active.TB.4)
+
+names(TB_64_clean)
+TB_64_df <- as.data.frame(TB_64_clean)
+
+#Clinical TB 65 data
+names(TB_65)
+head(TB_65)
+summary(TB_65)
+
+TB_65_clean <- 
+  TB_65 %>% dplyr::rename(TB_65 = London.Active.TB.5)
+
+names(TB_65_clean)
+TB_65_df <- as.data.frame(TB_65_clean)
+
+#Clinical TB 66 data
+names(TB_66)
+head(TB_66)
+summary(TB_66)
+
+TB_66_clean <- 
+  TB_66 %>% dplyr::rename(TB_66 = London.Active.TB.6)
+
+names(TB_66_clean)
+TB_66_df <- as.data.frame(TB_66_clean)
+
+#Clinical TB 67 data
+names(TB_67)
+head(TB_67)
+summary(TB_67)
+
+TB_67_clean <- 
+  TB_67 %>% dplyr::rename(TB_67 = London.Active.TB.7)
+
+names(TB_67_clean)
+TB_67_df <- as.data.frame(TB_67_clean)
+
+#Clinical TB 68 data
+names(TB_68)
+head(TB_68)
+summary(TB_68)
+
+TB_68_clean <- 
+  TB_68 %>% dplyr::rename(TB_68 = London.Active.TB.8)
+
+names(TB_68_clean)
+TB_68_df <- as.data.frame(TB_68_clean)
+
+#Clinical TB 69 data
+names(TB_69)
+head(TB_69)
+summary(TB_69)
+
+TB_69_clean <- 
+  TB_69 %>% dplyr::rename(TB_69 = London.Active.TB.9)
+
+names(TB_69_clean)
+TB_69_df <- as.data.frame(TB_69_clean)
+
+#Clinical TB 70 data
+names(TB_70)
+head(TB_70)
+summary(TB_70)
+
+TB_70_clean <- 
+  TB_70 %>% dplyr::rename(TB_70 = London.Active.TB.10)
+
+names(TB_70_clean)
+TB_70_df <- as.data.frame(TB_70_clean)
+
+#Clinical TB 71 data
+names(TB_71)
+head(TB_71)
+summary(TB_71)
+
+TB_71_clean <- 
+  TB_71 %>% dplyr::rename(TB_71 = London.Active.TB.11)
+
+names(TB_71_clean)
+TB_71_df <- as.data.frame(TB_71_clean)
+
+#Clinical TB 72 data
+names(TB_72)
+head(TB_72)
+summary(TB_72)
+
+TB_72_clean <- 
+  TB_72 %>% dplyr::rename(TB_72 = London.Active.TB.12)
+
+names(TB_72_clean)
+TB_72_df <- as.data.frame(TB_72_clean)
+
+#Clinical TB 73 data
+names(TB_73)
+head(TB_73)
+summary(TB_73)
+
+TB_73_clean <- 
+  TB_73 %>% dplyr::rename(TB_73 = London.Active.TB.13)
+
+names(TB_73_clean)
+TB_73_df <- as.data.frame(TB_73_clean)
+
+#Clinical TB 74 data
+names(TB_74)
+head(TB_74)
+summary(TB_74)
+
+TB_74_clean <- 
+  TB_74 %>% dplyr::rename(TB_74 = London.Active.TB.14)
+
+names(TB_74_clean)
+TB_74_df <- as.data.frame(TB_74_clean)
+
+#Clinical TB 75 data
+names(TB_75)
+head(TB_75)
+summary(TB_75)
+
+TB_75_clean <- 
+  TB_75 %>% dplyr::rename(TB_75 = London.Active.TB.15)
+
+names(TB_75_clean)
+TB_75_df <- as.data.frame(TB_75_clean)
+
+#Clinical TB 76 data
+names(TB_76)
+head(TB_76)
+summary(TB_76)
+
+TB_76_clean <- 
+  TB_76 %>% dplyr::rename(TB_76 = London.Active.TB.16)
+
+names(TB_76_clean)
+TB_76_df <- as.data.frame(TB_76_clean)
+
+#Clinical TB 77 data
+names(TB_77)
+head(TB_77)
+summary(TB_77)
+
+TB_77_clean <- 
+  TB_77 %>% dplyr::rename(TB_77 = London.Active.TB.17)
+
+names(TB_77_clean)
+TB_77_df <- as.data.frame(TB_77_clean)
+
+#Clinical TB 78 data
+names(TB_78)
+head(TB_78)
+summary(TB_78)
+
+TB_78_clean <- 
+  TB_78 %>% dplyr::rename(TB_78 = London.Active.TB.18)
+
+names(TB_78_clean)
+TB_78_df <- as.data.frame(TB_78_clean)
+
+#Clinical TB 79 data
+names(TB_79)
+head(TB_79)
+summary(TB_79)
+
+TB_79_clean <- 
+  TB_79 %>% dplyr::rename(TB_79 = London.Active.TB.19)
+
+names(TB_79_clean)
+TB_79_df <- as.data.frame(TB_79_clean)
+
+#Clinical TB 80 data
+names(TB_80)
+head(TB_80)
+summary(TB_80)
+
+TB_80_clean <- 
+  TB_80 %>% dplyr::rename(TB_80 = London.Active.TB.20)
+
+names(TB_80_clean)
+TB_80_df <- as.data.frame(TB_80_clean)
+
+#Clinical TB 81 data
+names(TB_81)
+head(TB_81)
+summary(TB_81)
+
+TB_81_clean <- 
+  TB_81 %>% dplyr::rename(TB_81 = London.Active.TB.21)
+
+names(TB_81_clean)
+TB_81_df <- as.data.frame(TB_81_clean)
+
+# Tidy up Non-infected Data ####
+#non infected 2 088 data
+names(non_infected_2_088)
+head(non_infected_2_088)
+summary(non_infected_2_088)
+
+non_infected_2_088_clean <- 
+  non_infected_2_088 %>% dplyr::rename(Healthy_88 = HISAT2.on.data.38.and.data.37..aligned.reads..BAM.)
+
+names(non_infected_2_088_clean)
+non_infected_2_088_df <- as.data.frame(non_infected_2_088_clean)
+
+#non infected 2 086 data
+names(non_infected_2_085)
+head(non_infected_2_085)
+summary(non_infected_2_085)
+
+non_infected_2_085_clean <- 
+  non_infected_2_085 %>% dplyr::rename(Healthy_85 = HISAT2.on.data.34.and.data.33..aligned.reads..BAM.)
+
+names(non_infected_2_085_clean)
+non_infected_2_085_df <- as.data.frame(non_infected_2_085_clean)
+
+#non infected 2 060 data
+names(non_infected_2_060)
+head(non_infected_2_060)
+summary(non_infected_2_060)
+
+non_infected_2_060_clean <- 
+  non_infected_2_060 %>% dplyr::rename(Healthy_60 = HISAT2.__ob__02_060_0_2__cb__...aligned.reads..BAM.)
+
+names(non_infected_2_060_clean)
+non_infected_2_060_df <- as.data.frame(non_infected_2_060_clean)
+
+#non infected 2 051
+names(non_infected_2_051)
+head(non_infected_2_051)
+summary(non_infected_2_051)
+
+non_infected_2_051_clean <- 
+  non_infected_2_051 %>% dplyr::rename(Healthy_51 = HISAT2.__ob__02_051_0_2__cb__...aligned.reads..BAM.)
+
+names(non_infected_2_051_clean)
+non_infected_2_051_df <- as.data.frame(non_infected_2_051_clean)
+
+#non infected 2 046
+names(non_infected_2_046)
+head(non_infected_2_046)
+summary(non_infected_2_046)
+
+non_infected_2_046_clean <- 
+  non_infected_2_046 %>% dplyr::rename(Healthy_46 = HISAT2.__ob__02_046_0_2__cb__...aligned.reads..BAM.)
+
+names(non_infected_2_046_clean)
+non_infected_2_046_df <- as.data.frame(non_infected_2_046_clean)
+
+#non infected 2 044
+names(non_infected_2_044)
+head(non_infected_2_044)
+summary(non_infected_2_044)
+
+non_infected_2_044_clean <- 
+  non_infected_2_044 %>% dplyr::rename(Healthy_44 = HISAT2.__ob__02_044_0_2__cb__...aligned.reads..BAM.)
+
+names(non_infected_2_044_clean)
+non_infected_2_044_df <- as.data.frame(non_infected_2_044_clean)
+
+#non infected 2 037
+names(non_infected_2_037)
+head(non_infected_2_037)
+summary(non_infected_2_037)
+
+non_infected_2_037_clean <- 
+  non_infected_2_037 %>% dplyr::rename(Healthy_37 = HISAT2.__ob__02_037_0_2__cb__...aligned.reads..BAM.)
+
+names(non_infected_2_037_clean)
+non_infected_2_037_df <- as.data.frame(non_infected_2_037_clean)
+
+#non infected 2 023
+names(non_infected_2_023)
+head(non_infected_2_023)
+summary(non_infected_2_023)
+
+non_infected_2_023_clean <- 
+  non_infected_2_023 %>% dplyr::rename(Healthy_23 = HISAT2.__ob__02_023_0_2__cb__...aligned.reads..BAM.)
+
+names(non_infected_2_023_clean)
+non_infected_2_023_df <- as.data.frame(non_infected_2_023_clean)
+
+#non infected 1 081
+names(non_infected_1_081)
+head(non_infected_1_081)
+summary(non_infected_1_081)
+
+non_infected_1_081_clean <- 
+  non_infected_1_081 %>% dplyr::rename(Healthy_81 = HISAT2.__ob__01_081_0_2__cb__...aligned.reads..BAM.)
+
+names(non_infected_1_081_clean)
+non_infected_1_081_df <- as.data.frame(non_infected_1_081_clean)
+
+#non infected 1 062
+names(non_infected_1_062)
+head(non_infected_1_062)
+summary(non_infected_1_062)
+
+non_infected_1_062_clean <- 
+  non_infected_1_062 %>% dplyr::rename(Healthy_62 = HISAT2.__ob__01_062_0_2__cb__...aligned.reads..BAM.)
+
+names(non_infected_1_062_clean)
+non_infected_1_062_df <- as.data.frame(non_infected_1_062_clean)
+
+#non infected 1 057
+names(non_infected_1_057)
+head(non_infected_1_057)
+summary(non_infected_1_057)
+
+non_infected_1_057_clean <- 
+  non_infected_1_057 %>% dplyr::rename(Healthy_57 = HISAT2.__ob__01_057_0_2__cb__...aligned.reads..BAM.)
+
+names(non_infected_1_057_clean)
+non_infected_1_057_df <- as.data.frame(non_infected_1_057_clean)
+
+#non infected 1 021
+names(non_infected_1_021)
+head(non_infected_1_021)
+summary(non_infected_1_021)
+
+non_infected_1_021_clean <- 
+  non_infected_1_021 %>% dplyr::rename(Healthy_21 = HISAT2.__ob__01_021_0_2__cb__...aligned.reads..BAM.)
+
+names(non_infected_1_021_clean)
+non_infected_1_021_df <- as.data.frame(non_infected_1_021_clean)
+
+#non infected 1 008
+names(non_infected_1_008)
+head(non_infected_1_008)
+summary(non_infected_1_008)
+
+non_infected_1_008_clean <- 
+  non_infected_1_008 %>% dplyr::rename(Healthy_08 = HISAT2.__ob__01_008_0_2__cb__...aligned.reads..BAM.)
+
+names(non_infected_1_008_clean)
+non_infected_1_008_df <- as.data.frame(non_infected_1_008_clean)
+# Joining TB HIV Data Frames ####
+HIV_TB_Counts1 <- dplyr::inner_join(HIV_TB_01_df, HIV_TB_02_df, by = "Geneid")
+HIV_TB_Counts2 <- dplyr::inner_join(HIV_TB_03_df, HIV_TB_05_df, by = "Geneid")
+HIV_TB_Counts3 <- dplyr::inner_join(HIV_TB_06_df, HIV_TB_09_df, by = "Geneid")
+HIV_TB_Counts4 <- dplyr::inner_join(HIV_TB_13_df, HIV_TB_15_df, by = "Geneid")
+HIV_TB_Counts5 <- dplyr::inner_join(HIV_TB_20_df, HIV_TB_21_df, by = "Geneid")
+HIV_TB_Counts6 <- dplyr::inner_join(HIV_TB_22_df, HIV_TB_23_df, by = "Geneid")
+HIV_TB_Counts7 <- dplyr::inner_join(HIV_TB_24_df, HIV_TB_25_df, by = "Geneid")
+HIV_TB_Counts8 <- dplyr::inner_join(HIV_TB_31_df, HIV_TB_32_df, by = "Geneid")
+HIV_TB_Counts9 <- dplyr::inner_join(HIV_TB_33_df, HIV_TB_34_df, by = "Geneid")
+HIV_TB_Counts10 <- dplyr::inner_join(HIV_TB_35_df, HIV_TB_36_df, by = "Geneid")
+HIV_TB_Counts11 <- dplyr::inner_join(HIV_TB_37_df, HIV_TB_38_df, by = "Geneid")
+HIV_TB_Counts12 <- dplyr::inner_join(HIV_TB_39_df, HIV_TB_40_df, by = "Geneid")
+HIV_TB_Counts13 <- dplyr::inner_join(HIV_TB_41_df, HIV_TB_42_df, by = "Geneid")
+HIV_TB_Counts14 <- dplyr::inner_join(HIV_TB_43_df, HIV_TB_44_df, by = "Geneid")
+
+HIV_TB_Counts15 <- dplyr::inner_join(HIV_TB_Counts1,HIV_TB_Counts2, by = "Geneid")
+HIV_TB_Counts16 <- dplyr::inner_join(HIV_TB_Counts3,HIV_TB_Counts4, by = "Geneid")
+HIV_TB_Counts17 <- dplyr::inner_join(HIV_TB_Counts5,HIV_TB_Counts6, by = "Geneid")
+HIV_TB_Counts18 <- dplyr::inner_join(HIV_TB_Counts7,HIV_TB_Counts8, by = "Geneid")
+HIV_TB_Counts19 <- dplyr::inner_join(HIV_TB_Counts9,HIV_TB_Counts10, by = "Geneid")
+HIV_TB_Counts20 <- dplyr::inner_join(HIV_TB_Counts11,HIV_TB_Counts12, by = "Geneid")
+HIV_TB_Counts21 <- dplyr::inner_join(HIV_TB_Counts13,HIV_TB_Counts14, by = "Geneid")
+
+HIV_TB_Counts22 <- dplyr::inner_join(HIV_TB_Counts15,HIV_TB_Counts16, by = "Geneid")
+HIV_TB_Counts23 <- dplyr::inner_join(HIV_TB_Counts17,HIV_TB_Counts18, by = "Geneid")
+HIV_TB_Counts24 <- dplyr::inner_join(HIV_TB_Counts19,HIV_TB_Counts20, by = "Geneid")
+HIV_TB_Counts25 <- dplyr::inner_join(HIV_TB_Counts21,HIV_TB_45_df, by = "Geneid")
+
+
+HIV_TB_Counts26 <- dplyr::inner_join(HIV_TB_Counts22, HIV_TB_Counts23, by = "Geneid")
+HIV_TB_Counts27 <- dplyr::inner_join(HIV_TB_Counts24, HIV_TB_Counts25, by = "Geneid")
+
+HIV_TB_Counts <- dplyr::inner_join(HIV_TB_Counts26, HIV_TB_Counts27, by = "Geneid")
+view(HIV_TB_Counts)
+
+# Joining HIV Data Frames ####
+
+HIV_Counts1 <- dplyr::inner_join(HIV_6_003_df, HIV_6_009_df, by = "Geneid")
+HIV_Counts2 <- dplyr::inner_join(HIV_6_012_df, HIV_6_015_df, by = "Geneid")
+HIV_Counts3 <- dplyr::inner_join(HIV_6_016_df, HIV_6_018_df, by = "Geneid")
+HIV_Counts4 <- dplyr::inner_join(HIV_4_009_df,HIV_4_017_df, by = "Geneid")
+HIV_Counts5 <- dplyr::inner_join(HIV_4_020_df, HIV_4_021_df, by = "Geneid")
+HIV_Counts6 <- dplyr::inner_join(HIV_4_022_df, HIV_4_023_df, by = "Geneid")
+
+HIV_Counts7 <- dplyr::inner_join(HIV_30_df, HIV_31_df, by = "Geneid")
+HIV_Counts8 <- dplyr::inner_join(HIV_32_df, HIV_33_df, by = "Geneid")
+HIV_Counts9 <- dplyr::inner_join(HIV_34_df, HIV_35_df, by = "Geneid")
+HIV_Counts10 <- dplyr::inner_join(HIV_36_df, HIV_37_df, by = "Geneid")
+HIV_Counts11 <- dplyr::inner_join(HIV_38_df, HIV_39_df, by = "Geneid")
+
+HIV_Counts12 <- dplyr::inner_join(HIV_Counts1, HIV_Counts2, by = "Geneid")
+HIV_Counts13 <- dplyr::inner_join(HIV_Counts3, HIV_Counts4, by = "Geneid")
+HIV_Counts14 <- dplyr::inner_join(HIV_Counts5, HIV_Counts6, by = "Geneid")
+HIV_Counts15 <- dplyr::inner_join(HIV_Counts7, HIV_Counts8, by = "Geneid")
+HIV_Counts16 <- dplyr::inner_join(HIV_Counts9, HIV_Counts10, by = "Geneid")
+HIV_Counts17 <- dplyr::inner_join(HIV_Counts11, HIV_40_df, by = "Geneid")
+
+HIV_Counts18 <- dplyr::inner_join(HIV_Counts12, HIV_Counts13, by = "Geneid")
+HIV_Counts19 <- dplyr::inner_join(HIV_Counts14, HIV_Counts15, by = "Geneid")
+HIV_Counts20 <- dplyr::inner_join(HIV_Counts16, HIV_Counts17, by = "Geneid")
+
+HIV_Counts21 <- dplyr::inner_join(HIV_Counts18, HIV_Counts19, by = "Geneid")
+HIV_Counts <- dplyr::inner_join(HIV_Counts21, HIV_Counts20, by = "Geneid")
+view(HIV_Counts)
+
+# Joining Clinical TB Data Frames ####
+Clinical_TB_counts1 <- dplyr:::inner_join(Clinical_TB_3_022_df, Clinical_TB_3_029_df, by = "Geneid")
+Clinical_TB_counts2 <- dplyr:::inner_join(Clinical_TB_3_031_df, Clinical_TB_3_032_df, by = "Geneid")
+Clinical_TB_counts3 <- dplyr:::inner_join(Clinical_TB_3_033_df, Clinical_TB_3_035_df, by = "Geneid")
+Clinical_TB_counts4 <- dplyr:::inner_join(Clinical_TB_3_039_df, Clinical_TB_3_041_df, by = "Geneid")
+Clinical_TB_counts5 <- dplyr:::inner_join(Clinical_TB_3_049_df, Clinical_TB_3_050_df, by = "Geneid")
+
+Clinical_TB_counts6 <- dplyr:::inner_join(TB_61_df, TB_62_df, by = "Geneid")
+Clinical_TB_counts7 <- dplyr:::inner_join(TB_63_df, TB_64_df, by = "Geneid")
+Clinical_TB_counts8 <- dplyr:::inner_join(TB_65_df, TB_66_df, by = "Geneid")
+Clinical_TB_counts9 <- dplyr:::inner_join(TB_67_df, TB_68_df, by = "Geneid")
+Clinical_TB_counts10 <- dplyr:::inner_join(TB_69_df, TB_70_df, by = "Geneid")
+Clinical_TB_counts11 <- dplyr:::inner_join(TB_71_df, TB_72_df, by = "Geneid")
+Clinical_TB_counts12 <- dplyr:::inner_join(TB_73_df, TB_74_df, by = "Geneid")
+Clinical_TB_counts13 <- dplyr:::inner_join(TB_75_df, TB_76_df, by = "Geneid")
+Clinical_TB_counts14 <- dplyr:::inner_join(TB_77_df, TB_78_df, by = "Geneid")
+Clinical_TB_counts15 <- dplyr:::inner_join(TB_79_df, TB_80_df, by = "Geneid")
+
+
+Clinical_TB_counts16 <- dplyr:::inner_join(Clinical_TB_counts1, Clinical_TB_counts2, by = "Geneid")
+Clinical_TB_counts17<- dplyr:::inner_join(Clinical_TB_counts3, Clinical_TB_counts4, by = "Geneid")
+Clinical_TB_counts18 <- dplyr:::inner_join(Clinical_TB_counts5, Clinical_TB_counts6, by = "Geneid")
+Clinical_TB_counts19 <- dplyr:::inner_join(Clinical_TB_counts7, Clinical_TB_counts8, by = "Geneid")
+Clinical_TB_counts20 <- dplyr:::inner_join(Clinical_TB_counts9, Clinical_TB_counts10, by = "Geneid")
+Clinical_TB_counts21 <- dplyr:::inner_join(Clinical_TB_counts11, Clinical_TB_counts12, by = "Geneid")
+Clinical_TB_counts22 <- dplyr:::inner_join(Clinical_TB_counts13, Clinical_TB_counts14, by = "Geneid")
+Clinical_TB_counts23 <- dplyr:::inner_join(Clinical_TB_counts15, TB_81_df, by = "Geneid")
+
+Clinical_TB_counts24 <- dplyr:::inner_join(Clinical_TB_counts16, Clinical_TB_counts17, by = "Geneid")
+Clinical_TB_counts25 <- dplyr:::inner_join(Clinical_TB_counts18, Clinical_TB_counts19, by = "Geneid")
+Clinical_TB_counts26 <- dplyr:::inner_join(Clinical_TB_counts20, Clinical_TB_counts21, by = "Geneid")
+Clinical_TB_counts27 <- dplyr:::inner_join(Clinical_TB_counts22, Clinical_TB_counts23, by = "Geneid")
+
+Clinical_TB_counts28 <- dplyr:::inner_join(Clinical_TB_counts24, Clinical_TB_counts25, by = "Geneid")
+Clinical_TB_counts29 <- dplyr:::inner_join(Clinical_TB_counts26, Clinical_TB_counts27, by = "Geneid")
+
+TB_Counts <- dplyr:::inner_join(Clinical_TB_counts28, Clinical_TB_counts29, by = "Geneid")
+
+
+view(TB_Counts)
+# Joining Non-infected Data Frames ####
+non_infected_counts1 <- dplyr:::inner_join(non_infected_1_008_df, non_infected_1_021_df, by = "Geneid")
+non_infected_counts2 <- dplyr:::inner_join(non_infected_1_057_df, non_infected_1_062_df, by = "Geneid")
+non_infected_counts3 <- dplyr:::inner_join(non_infected_1_081_df, non_infected_2_023_df, by = "Geneid")
+non_infected_counts4 <- dplyr:::inner_join(non_infected_2_037_df, non_infected_2_044_df, by = "Geneid")
+non_infected_counts5 <- dplyr:::inner_join(non_infected_2_046_df, non_infected_2_051_df, by = "Geneid")
+non_infected_counts6 <- dplyr:::inner_join(non_infected_2_060_df, non_infected_2_085_df, by = "Geneid")
+
+non_infected_counts7 <- dplyr:::inner_join(non_infected_counts1, non_infected_counts2, by = "Geneid")
+non_infected_counts8 <- dplyr:::inner_join(non_infected_counts3, non_infected_counts4, by = "Geneid")
+non_infected_counts9 <- dplyr:::inner_join(non_infected_counts5, non_infected_counts6, by = "Geneid")
+non_infected_counts10 <- dplyr:::inner_join(non_infected_counts9, non_infected_2_088_df, by = "Geneid")
+
+non_infected_counts11 <- dplyr:::inner_join(non_infected_counts7, non_infected_counts8, by = "Geneid")
+
+Non_infected_Counts <- dplyr:::inner_join(non_infected_counts11, non_infected_counts10, by = "Geneid")
+
+
+
