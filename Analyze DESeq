@@ -1,0 +1,36 @@
+setwd("C:/Users/taguiame/OneDrive - University of Manitoba/Desktop/RNA Seq Project")
+
+#Remember to load the packages needed ####
+library(DESeq2)
+
+#plot MA
+DESeq2::plotMA(res)
+DESeq2::plotMA(res, ylim=c(-2,2))
+
+#plot dispersion estimates to examine normalization
+plotDispEsts(dds)
+
+# plot PCA
+vsdata = vst(dds, blind = TRUE)
+
+#plotting PCA based on Condition and Ethnicity
+plotPCA(vsdata, intgroup=c("Condition", "Ethnicity"))
+
+#plotting PCA based on paired-end vs single end
+plotPCA(vsdata, intgroup="Type")
+
+pcaData <- plotPCA(vsdata, intgroup=c("Condition", "Ethnicity"), ntop = 26000, returnData=TRUE)
+percentVar <- round(100 * attr(pcaData, "percentVar"))
+ggplot(pcaData, aes(PC1, PC2, color=Condition, shape=Ethnicity)) +
+  geom_point(size=3) +
+  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
+  ylab(paste0("PC2: ",percentVar[2],"% variance")) + 
+  coord_fixed() +
+  stat_ellipse()+stat_ellipse(level=0.8)
+colData(vsdata)
+
+# heatmap
+vst_mat <- assay(vsdata)
+vst_cor <- cor(vst_mat)
+
+pheatmap::pheatmap(vst_cor)
