@@ -1,0 +1,80 @@
+library(ggrepel)
+library(ggpubr)
+
+# HIVTB vs Non-Infected ####
+# add a column of NAs
+resHIVTB$Differentially_Expressed <- "Not significant"
+# if log2Foldchange > 1.5 and pvalue < 0.05, set as "UP" 
+resHIVTB$Differentially_Expressed[resHIVTB$log2FoldChange > 1.5 & resHIVTB$pvalue < 0.05] <- "Up-regulated"
+# if log2Foldchange < -1.5 and pvalue < 0.05, set as "DOWN"
+resHIVTB$Differentially_Expressed[resHIVTB$log2FoldChange < -1.5 & resHIVTB$pvalue < 0.05] <- "Down-regulated"
+
+resHIVTB$delabel <- NA
+resHIVTB$delabel[resHIVTB$Differentially_Expressed != "Not significant"] <- resHIVTB$Symbol[resHIVTB$Differentially_Expressed != "Not significant"]
+
+mycolors <- c("steelblue", "firebrick", "black")
+names(mycolors) <- c("Down-regulated", "Up-regulated", "Not significant")
+
+V1 <-
+  ggplot(resHIVTB, aes(x = log2FoldChange, y = -log10(pvalue), col=Differentially_Expressed, label=delabel)) +
+   geom_point() +
+   ggtitle("TB in PLHIV vs Non-Infected") +
+   theme_minimal() +
+   geom_text_repel(force = 1, nudge_y = 0.4, direction = "x") +
+   scale_color_manual(values=c("steelblue", "black", "firebrick")) +
+   geom_vline(xintercept=c(-1.5, 1.5), linetype = "dashed", col="black") +
+   geom_hline(yintercept=-log10(0.05), linetype = "dashed", col="black")
+  
+# HIVTB vs HIV ####
+ # add a column of NAs
+ resHIVTB_HIV$Differentially_Expressed <- "Not significant"
+ # if log2Foldchange > 1.5 and pvalue < 0.05, set as "UP" 
+ resHIVTB_HIV$Differentially_Expressed[resHIVTB_HIV$log2FoldChange > 1.5 & resHIVTB_HIV$pvalue < 0.05] <- "Up-regulated"
+ # if log2Foldchange < -1.5 and pvalue < 0.05, set as "DOWN"
+ resHIVTB_HIV$Differentially_Expressed[resHIVTB_HIV$log2FoldChange < -1.5 & resHIVTB_HIV$pvalue < 0.05] <- "Down-regulated"
+ 
+ resHIVTB_HIV$delabel <- NA
+ resHIVTB_HIV$delabel[resHIVTB_HIV$Differentially_Expressed != "Not significant"] <- resHIVTB_HIV$Symbol[resHIVTB_HIV$Differentially_Expressed != "Not significant"]
+ 
+ mycolors <- c("steelblue", "firebrick", "black")
+ names(mycolors) <- c("Down-regulated", "Up-regulated", "Not significant")
+ 
+V2 <-
+  ggplot(resHIVTB_HIV, aes(x = log2FoldChange, y = -log10(pvalue), col=Differentially_Expressed, label=delabel)) +
+   geom_point() +
+   ggtitle("TB in PLHIV vs HIV") +
+   theme_minimal() +
+   geom_text_repel() +
+   scale_color_manual(values=c("steelblue", "black", "firebrick")) +
+   geom_vline(xintercept=c(-1.5, 1.5), linetype = "dashed", col="black") +
+   geom_hline(yintercept=-log10(0.05), linetype = "dashed", col="black")
+
+# HIVTB vs TB ####
+ # add a column of NAs
+ resHIVTB_TB$Differentially_Expressed <- "Not significant"
+ # if log2Foldchange > 1.5 and pvalue < 0.05, set as "UP" 
+ resHIVTB_TB$Differentially_Expressed[resHIVTB_TB$log2FoldChange > 1.5 & resHIVTB_TB$pvalue < 0.05] <- "Up-regulated"
+ # if log2Foldchange < -1.5 and pvalue < 0.05, set as "DOWN"
+ resHIVTB_TB$Differentially_Expressed[resHIVTB_TB$log2FoldChange < -1.5 & resHIVTB_TB$pvalue < 0.05] <- "Down-regulated"
+ 
+ resHIVTB_TB$delabel <- NA
+ resHIVTB_TB$delabel[resHIVTB_TB$Differentially_Expressed != "Not significant"] <- resHIVTB_TB$Symbol[resHIVTB_TB$Differentially_Expressed != "Not significant"]
+ 
+ mycolors <- c("steelblue", "firebrick", "black")
+ names(mycolors) <- c("Down-regulated", "Up-regulated", "Not significant")
+
+V3 <-
+  ggplot(resHIVTB_TB, aes(x = log2FoldChange, y = -log10(pvalue), col=Differentially_Expressed, label=delabel)) +
+   geom_point() +
+   ggtitle("TB in PLHIV vs TB") +
+   theme_minimal() +
+   geom_text_repel(force = 1, nudge_y = 0.4, direction = "x") +
+   scale_color_manual(values=c("steelblue", "black", "firebrick")) +
+   geom_vline(xintercept=c(-1.5, 1.5), linetype = "dashed", col="black") +
+   geom_hline(yintercept=-log10(0.05), linetype = "dashed", col="black")
+
+#Combining all figures ####
+Volcano_figure <- ggarrange(V1, V2, V3,  
+                     labels = c("A", "B", "C"),
+                     ncol = 3, nrow = 1, common.legend = TRUE, legend="bottom")
+Volcano_figure 
