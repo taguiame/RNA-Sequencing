@@ -1,3 +1,5 @@
+setwd("C:/Users/taguiame/OneDrive - University of Manitoba/Desktop/RNA Seq Project")
+
 library(DESeq2)
 
 #clean up results file
