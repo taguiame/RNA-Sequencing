@@ -1,4 +1,4 @@
-setwd("~/Desktop/RNA Seq Project")
+setwd("C:/Users/taguiame/OneDrive - University of Manitoba/Desktop/RNA Seq Project")
 
 library("AnnotationDbi")
 library("org.Hs.eg.db")
