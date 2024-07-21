@@ -1,0 +1,248 @@
+setwd("~/Desktop/RNA Seq Project")
+
+library("AnnotationDbi")
+library("org.Hs.eg.db")
+
+columns(org.Hs.eg.db)
+
+convertIDs <- function( ids, from, to, db, ifMultiple=c("putNA", "useFirst")) {
+  stopifnot( inherits( db, "AnnotationDb" ) )
+  ifMultiple <- match.arg( ifMultiple )
+  suppressWarnings( selRes <- AnnotationDbi::select(
+    db, keys=ids, keytype=from, columns=c(from,to) ) )
+  if ( ifMultiple == "putNA" ) {
+    duplicatedIds <- selRes[ duplicated( selRes[,1] ), 1 ]
+    selRes <- selRes[ ! selRes[,1] %in% duplicatedIds, ]
+  }
+  return( selRes[ match( ids, selRes[,1] ), 2 ] )
+}
+
+res$Symbol <- convertIDs(row.names(res), "ENTREZID", "SYMBOL", org.Hs.eg.db)
+res$GeneName <- convertIDs(row.names(res), "ENTREZID", "GENENAME", org.Hs.eg.db)
+
+head(res)
+view(res)
+
+# Setting the parameters based on fold change and adjusted p value ####
+logFC = 1.5
+padjust = 0.05
+
+# Clean up results file ####
+resHIVTB <- resHIVTB[order(resHIVTB$padj),]
+resHIVTB <- na.omit(resHIVTB)
+resHIVTB <- as.data.frame(resHIVTB)
+
+resHIV <- resHIV[order(resHIV$padj),]
+resHIV <- na.omit(resHIV)
+resHIV <- as.data.frame(resHIV)
+
+resTB <- resTB[order(resTB$padj),]
+resTB <- na.omit(resTB)
+resTB <- as.data.frame(resTB)
+
+resHIVTB_HIV <- resHIVTB_HIV[order(resHIVTB_HIV$padj),]
+resHIVTB_HIV <- na.omit(resHIVTB_HIV)
+resHIVTB_HIV <- as.data.frame(resHIVTB_HIV)
+
+resHIVTB_TB <- resHIVTB_TB[order(resHIVTB_TB$padj),]
+resHIVTB_TB <- na.omit(resHIVTB_TB)
+resHIVTB_TB <- as.data.frame(resHIVTB_TB)
+
+
+
+# Labeling resHIVTB ####
+resHIVTB$Symbol <- convertIDs(row.names(resHIVTB), "ENTREZID", "SYMBOL", org.Hs.eg.db)
+resHIVTB$GeneName <- convertIDs(row.names(resHIVTB), "ENTREZID", "GENENAME", org.Hs.eg.db)
+
+resHIVTB <- na.omit(resHIVTB)
+
+head(resHIVTB)
+view(resHIVTB)
+
+resHIVTB_df <- as.data.frame(resHIVTB)
+# HIV TB  
+#Up-regulated genes for HIV TB
+up_resHIVTB <- resHIVTB[which(resHIVTB$padj <= padjust & resHIVTB$log2FoldChange >= logFC), ]
+up_resHIVTB_df <- as.data.frame(up_resHIVTB)
+
+up_resHIVTB10_df <- as.data.frame(head(up_resHIVTB[order(up_resHIVTB$padj & up_resHIVTB$log2FoldChange),], 10))
+up_resHIVTB30_df <- as.data.frame(head(up_resHIVTB[order(up_resHIVTB$padj & up_resHIVTB$log2FoldChange),], 30))
+
+#Down-regulated genes for HIV TB
+down_resHIVTB <- resHIVTB[which(resHIVTB$padj <= padjust & resHIVTB$log2FoldChange <= -logFC), ]
+down_resHIVTB_df <- as.data.frame(down_resHIVTB)
+
+down_resHIVTB10_df <- as.data.frame(head(down_resHIVTB[order(down_resHIVTB$padj & down_resHIVTB$log2FoldChange),], 10))
+down_resHIVTB30_df <- as.data.frame(head(down_resHIVTB[order(down_resHIVTB$padj & down_resHIVTB$log2FoldChange),], 30))
+
+# Labeling resHIV ####
+resHIV$Symbol <- convertIDs(row.names(resHIV), "ENTREZID", "SYMBOL", org.Hs.eg.db)
+resHIV$GeneName <- convertIDs(row.names(resHIV), "ENTREZID", "GENENAME", org.Hs.eg.db)
+
+resHIV <- na.omit(resHIV)
+
+head(resHIV)
+view(resHIV)
+
+resHIV_df <- as.data.frame(resHIV)
+# HIV 
+#Up-regulated genes for HIV
+up_resHIV <- resHIV[which(resHIV$padj <= padjust & resHIV$log2FoldChange >= logFC), ]
+up_resHIV_df <- as.data.frame(up_resHIV)
+
+up_resHIV10_df <- as.data.frame(head(up_resHIV[order(up_resHIV$padj & up_resHIV$log2FoldChange),], 10))
+up_resHIV30_df <- as.data.frame(head(up_resHIV[order(up_resHIV$padj & up_resHIV$log2FoldChange),], 30))
+
+#Down-regulated genes for HIV 
+down_resHIV <- resHIV[which(resHIV$padj <= padjust & resHIV$log2FoldChange <= -logFC), ]
+down_resHIV_df <- as.data.frame(down_resHIV)
+
+down_resHIV10_df <- as.data.frame(head(down_resHIV[order(down_resHIV$padj & down_resHIV$log2FoldChange),], 10))
+down_resHIV30_df <- as.data.frame(head(down_resHIV[order(down_resHIV$padj & down_resHIV$log2FoldChange),], 30))
+
+# Labeling resTB ####
+resTB$Symbol <- convertIDs(row.names(resTB), "ENTREZID", "SYMBOL", org.Hs.eg.db)
+resTB$GeneName <- convertIDs(row.names(resTB), "ENTREZID", "GENENAME", org.Hs.eg.db)
+
+resTB <- na.omit(resTB)
+
+head(resTB)
+view(resTB)
+
+resTB_df <- as.data.frame(resTB)
+# TB  
+#Up-regulated genes for TB
+up_resTB <- resTB[which(resTB$padj <= padjust & resTB$log2FoldChange >= logFC), ]
+up_resTB_df <- as.data.frame(up_resTB)
+
+up_resTB10_df <- as.data.frame(head(up_resTB[order(up_resTB$padj & up_resTB$log2FoldChange),], 10))
+up_resTB30_df <- as.data.frame(head(up_resTB[order(up_resTB$padj & up_resTB$log2FoldChange),], 30))
+
+#Down-regulated genes for TB
+down_resTB <- resTB[which(resTB$padj <= padjust & resTB$log2FoldChange <= -logFC), ]
+down_resTB_df <- as.data.frame(down_resTB)
+
+down_resTB10_df <- as.data.frame(head(down_resTB[order(down_resTB$padj & down_resTB$log2FoldChange),], 10))
+down_resTB30_df <- as.data.frame(head(down_resTB[order(down_resTB$padj & down_resTB$log2FoldChange),], 30))
+
+# Labeling resHIVTB_HIV ####
+resHIVTB_HIV$Symbol <- convertIDs(row.names(resHIVTB_HIV), "ENTREZID", "SYMBOL", org.Hs.eg.db)
+resHIVTB_HIV$GeneName <- convertIDs(row.names(resHIVTB_HIV), "ENTREZID", "GENENAME", org.Hs.eg.db)
+
+resHIVTB_HIV <- na.omit(resHIVTB_HIV)
+
+head(resHIVTB_HIV)
+view(resHIVTB_HIV)
+
+resHIVTB_HIV_df <- as.data.frame(resHIVTB_HIV)
+
+# HIV TB vs HIV
+#Up-regulated genes for HIV TB vs HIV
+up_resHIVTB_HIV <- resHIVTB_HIV[which(resHIVTB_HIV$padj <= padjust & resHIVTB_HIV$log2FoldChange >= logFC), ]
+up_resHIVTB_HIV_df <- as.data.frame(up_resHIVTB_HIV)
+
+up_resHIVTB_HIV10_df <- as.data.frame(head(up_resHIVTB_HIV[order(up_resHIVTB_HIV$padj & up_resHIVTB_HIV$log2FoldChange),], 10))
+up_resHIVTB_HIV30_df <- as.data.frame(head(up_resHIVTB_HIV[order(up_resHIVTB_HIV$padj & up_resHIVTB_HIV$log2FoldChange),], 30))
+
+#Down-regulated genes for HIV TB vs HIV
+down_resHIVTB_HIV <- resHIVTB_HIV[which(resHIVTB_HIV$padj <= padjust & resHIVTB_HIV$log2FoldChange <= -logFC), ]
+down_resHIVTB_HIV_df <- as.data.frame(down_resHIVTB_HIV)
+
+down_resHIVTB_HIV10_df <- as.data.frame(head(down_resHIVTB_HIV[order(down_resHIVTB_HIV$padj & down_resHIVTB_HIV$log2FoldChange),], 10))
+down_resHIVTB_HIV30_df <- as.data.frame(head(down_resHIVTB_HIV[order(down_resHIVTB_HIV$padj & down_resHIVTB_HIV$log2FoldChange),], 30))
+
+# Labeling resHIVTB_TB ####
+resHIVTB_TB$Symbol <- convertIDs(row.names(resHIVTB_TB), "ENTREZID", "SYMBOL", org.Hs.eg.db)
+resHIVTB_TB$GeneName <- convertIDs(row.names(resHIVTB_TB), "ENTREZID", "GENENAME", org.Hs.eg.db)
+
+resHIVTB_TB <- na.omit(resHIVTB_TB)
+
+head(resHIVTB_TB)
+view(resHIVTB_TB)
+
+resHIVTB_TB_df <- as.data.frame(resHIVTB_TB)
+
+# HIV TB vs TB
+#Up-regulated genes for HIV TB vs TB
+up_resHIVTB_TB <- resHIVTB_TB[which(resHIVTB_TB$padj <= padjust & resHIVTB_TB$log2FoldChange >= logFC), ]
+up_resHIVTB_TB_df <- as.data.frame(up_resHIVTB_TB)
+
+up_resHIVTB_TB10_df <- as.data.frame(head(up_resHIVTB_TB[order(up_resHIVTB_TB$padj & up_resHIVTB_TB$log2FoldChange),], 10))
+up_resHIVTB_TB30_df <- as.data.frame(head(up_resHIVTB_TB[order(up_resHIVTB_TB$padj & up_resHIVTB_TB$log2FoldChange),], 30))
+
+#Down-regulated genes for HIV TB vs TB
+down_resHIVTB_TB <- resHIVTB_TB[which(resHIVTB_TB$padj <= padjust & resHIVTB_TB$log2FoldChange <= -logFC), ]
+down_resHIVTB_TB_df <- as.data.frame(down_resHIVTB_TB)
+
+down_resHIVTB_TB10_df <- as.data.frame(head(down_resHIVTB_TB[order(down_resHIVTB_TB$padj & down_resHIVTB_TB$log2FoldChange),], 10))
+down_resHIVTB_TB30_df <- as.data.frame(head(down_resHIVTB_TB[order(down_resHIVTB_TB$padj & down_resHIVTB_TB$log2FoldChange),], 30))
+
+
+# Saving resHIV ####
+write.csv(resHIV_df, "~/Desktop/[2024] Gene List for Primary Paper/resHIV.csv", row.names=FALSE)
+
+#Up-regulated HIV
+write.csv(up_resHIV_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIV.csv", row.names=FALSE)
+write.csv(up_resHIV10_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIV10.csv", row.names=FALSE)
+write.csv(up_resHIV30_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIV30.csv", row.names=FALSE)
+
+#Down-regulated
+write.csv(down_resHIV_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIV.csv", row.names=FALSE)
+write.csv(down_resHIV10_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIV10.csv", row.names=FALSE)
+write.csv(down_resHIV30_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIV30.csv", row.names=FALSE)
+
+
+# Saving HIVTB ####
+write.csv(resHIVTB_df, "~/Desktop/[2024] Gene List for Primary Paper/resHIVTB.csv", row.names=FALSE)
+
+#Up-regulated HIV TB
+write.csv(up_resHIVTB_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIVTB.csv", row.names=FALSE)
+write.csv(up_resHIVTB10_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIVTB10.csv", row.names=FALSE)
+write.csv(up_resHIVTB30_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIVTB30.csv", row.names=FALSE)
+
+#Down-regulated HIVTB
+write.csv(down_resHIVTB_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIVTB.csv", row.names=FALSE)
+write.csv(down_resHIVTB10_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIVTB10.csv", row.names=FALSE)
+write.csv(down_resHIVTB30_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIVTB30.csv", row.names=FALSE)
+
+# Saving resTB ####
+write.csv(resTB_df, "~/Desktop/[2024] Gene List for Primary Paper/resTB.csv", row.names=FALSE)
+
+#Up-regulated resTB
+write.csv(up_resTB_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resTB.csv", row.names=FALSE)
+write.csv(up_resTB10_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resTB10.csv", row.names=FALSE)
+write.csv(up_resTB30_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resTB30.csv", row.names=FALSE)
+
+#Down-regulated resTB
+write.csv(down_resTB_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resTB.csv", row.names=FALSE)
+write.csv(down_resTB10_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resTB10.csv", row.names=FALSE)
+write.csv(down_resTB30_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resTB30.csv", row.names=FALSE)
+
+
+# Saving resHIVTB_HIV ####
+write.csv(resHIVTB_HIV_df, "~/Desktop/[2024] Gene List for Primary Paper/resHIVTB_HIV.csv", row.names=FALSE)
+
+#Upregulated resHIVTB_HIV
+write.csv(up_resHIVTB_HIV_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIVTB_HIV.csv", row.names=FALSE)
+write.csv(up_resHIVTB_HIV10_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIVTB_HIV10.csv", row.names=FALSE)
+write.csv(up_resHIVTB_HIV30_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIVTB_HIV30.csv", row.names=FALSE)
+
+#Downregulated resHIVTB_HIV
+write.csv(down_resHIVTB_HIV_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIVTB_HIV.csv", row.names=FALSE)
+write.csv(down_resHIVTB_HIV10_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIVTB_HIV10.csv", row.names=FALSE)
+write.csv(down_resHIVTB_HIV30_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIVTB_HIV30.csv", row.names=FALSE)
+
+
+# Saving resHIVTB_TB ####
+write.csv(resHIVTB_TB_df, "~/Desktop/[2024] Gene List for Primary Paper/resHIVTB_TB.csv", row.names=FALSE)
+
+#Upregulated resHIVTB_TB
+write.csv(up_resHIVTB_TB_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIVTB_TB.csv", row.names=FALSE)
+write.csv(up_resHIVTB_TB10_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIVTB_TB10.csv", row.names=FALSE)
+write.csv(up_resHIVTB_TB30_df, "~/Desktop/[2024] Gene List for Primary Paper/up_resHIVTB_TB30.csv", row.names=FALSE)
+
+#Downregulated resHIVTB_TB
+write.csv(down_resHIVTB_TB_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIVTB_TB.csv", row.names=FALSE)
+write.csv(down_resHIVTB_TB10_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIVTB_TB10.csv", row.names=FALSE)
+write.csv(down_resHIVTB_TB30_df, "~/Desktop/[2024] Gene List for Primary Paper/down_resHIVTB_TB30.csv", row.names=FALSE)
+
