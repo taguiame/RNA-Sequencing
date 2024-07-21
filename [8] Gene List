@@ -1,0 +1,79 @@
+# Upregulated Shared Genes ####
+select_UP_HIVTB <- dplyr::select(up_resHIVTB_df, Symbol)
+select_UP_HIV <- dplyr::select(up_resHIV_df, Symbol)
+select_UP_TB <- dplyr::select(up_resTB_df, Symbol)
+
+# Shared across all conditions - upregulated
+shared_upregulated1 <- dplyr::inner_join(select_UP_HIVTB, select_UP_HIV, by = 'Symbol')
+shared_upregulated2 <- dplyr::inner_join(shared_upregulated1, select_UP_TB, by = 'Symbol')
+view(shared_upregulated2)
+shared_UP_HIVTB <- dplyr::inner_join(shared_upregulated2, resHIVTB, by = 'Symbol')
+shared_UP_HIVTB_df <- as.data.frame(shared_UP_HIVTB)
+view(shared_UP_HIVTB_df)
+# Downregulated Shared Genes ####
+select_DOWN_HIVTB <- dplyr::select(down_resHIVTB_df, Symbol)
+select_DOWN_HIV <- dplyr::select(down_resHIV_df, Symbol)
+select_DOWN_TB <- dplyr::select(down_resTB_df, Symbol)
+
+# shared across all conditions - downregulated
+shared_downregulated1 <- dplyr::inner_join(select_DOWN_HIVTB, select_DOWN_HIV, by = 'Symbol')
+shared_downregulated2 <- dplyr::inner_join(shared_downregulated1, select_DOWN_TB, by = 'Symbol')
+
+shared_DOWN_HIVTB <- dplyr::inner_join(shared_downregulated2, resHIVTB, by = 'Symbol')
+shared_DOWN_HIVTB_df <- as.data.frame(shared_DOWN_HIVTB)
+
+#Combining both upregulated and downregulated
+All_shared_HIVTB <- dplyr::full_join(shared_UP_HIVTB_df, shared_DOWN_HIVTB_df)
+
+#saving data ####
+write.csv(All_shared_HIVTB, 
+          "~/Desktop/[2024] Gene List for Primary Paper/All_shared_HIVTB.csv", row.names=FALSE)
+
+head(All_shared_HIVTB[order(All_shared_HIVTB$padj & All_shared_HIVTB$log2FoldChange),], 10)
+head(shared_DOWN_HIVTB[order(shared_DOWN_HIVTB$padj & shared_DOWN_HIVTB$log2FoldChange),], 10)
+head(shared_UP_HIVTB[order(shared_UP_HIVTB$padj & shared_UP_HIVTB$log2FoldChange),], 10)
+
+# Shared between HIVTB and TB ####
+#Up regulated
+Up_shared_HIVTB_and_TB <- read.csv("Up HIVTB and TB shared.csv")
+Up_shared_HIVTB_and_TB <- as.data.frame(Up_shared_HIVTB_and_TB)
+View(Up_shared_HIVTB_and_TB)
+
+shared_UP_HIVTB_and_TB <- dplyr::inner_join(Up_shared_HIVTB_and_TB, resHIVTB_df, by = 'Symbol')
+View(shared_UP_HIVTB_and_TB)
+
+# Down regulated
+Down_shared_HIVTB_and_TB <- read.csv("Down HIVTB and TB shared.csv")
+Down_shared_HIVTB_and_TB <- as.data.frame(Down_shared_HIVTB_and_TB)
+View(Down_shared_HIVTB_and_TB)
+
+shared_DOWN_HIVTB_and_TB <- dplyr::inner_join(Down_shared_HIVTB_and_TB, resHIVTB_df, by = 'Symbol')
+View(shared_DOWN_HIVTB_and_TB)
+
+# Saving Shared HIVTB and TB data ####
+write.csv(shared_UP_HIVTB_and_TB, "~/Desktop/[2024] Gene List for Primary Paper/Up_shared_HIVTB_and_TB.csv", row.names=FALSE)
+write.csv(shared_DOWN_HIVTB_and_TB, "~/Desktop/[2024] Gene List for Primary Paper/Down_shared_HIVTB_and_TB.csv", row.names=FALSE)
+
+
+# Unique HIVTB ####
+# Upregulated
+Unique_Up_HIVTB <- read.csv("Unique Up HIVTB.csv")
+Unique_Up_HIVTB <- as.data.frame(Unique_Up_HIVTB)
+View(Unique_Up_HIVTB)
+
+Unique_Up_HIVTB <- dplyr::inner_join(Unique_Up_HIVTB, resHIVTB_df, by = 'Symbol')
+write.csv(Unique_Up_HIVTB, "~/Desktop/[2024] Gene List for Primary Paper/Unique_Up_HIVTB.csv", row.names=FALSE)
+
+
+# Checking how many upregulated and down regulated
+# HIVTB vs non-infected
+summary(resHIVTB$padj <= padjust & resHIVTB$log2FoldChange >= logFC)
+summary(resHIVTB$padj <= padjust & resHIVTB$log2FoldChange <= -logFC)
+
+#HIVTB vs HIV
+summary(resHIVTB_HIV$padj <= padjust & resHIVTB_HIV$log2FoldChange >= logFC)
+summary(resHIVTB_HIV$padj <= padjust & resHIVTB_HIV$log2FoldChange <= -logFC)
+
+#HIVTB vs TB
+summary(resHIVTB_TB$padj <= padjust & resHIVTB_TB$log2FoldChange >= logFC)
+summary(resHIVTB_TB$padj <= padjust & resHIVTB_TB$log2FoldChange <= -logFC)
