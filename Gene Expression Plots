@@ -1,0 +1,80 @@
+# Libraries needed
+library(ggplot2)
+library(ggsignif)
+library(ggpubr)
+
+
+{
+# geneID 116071 BATF2
+BATF2 <- plotCounts(dds, gene="116071", intgroup="Condition", normalized = TRUE, returnData=TRUE) %>% 
+  ggplot(aes(Condition, count)) + geom_boxplot(aes(fill=Condition)) + 
+  scale_y_log10() + ggtitle("BATF2") +  theme(plot.title = element_text(size = 30, hjust = 0.5)) + 
+  theme(axis.title.y = element_text(size = 20)) + theme(axis.title.x = element_text(size = 20)) + 
+  theme(legend.text = element_text(size = 15)) + theme(legend.title = element_text(size = 20)) + 
+  theme(axis.text = element_text(size = 15))+ geom_signif(
+    comparisons = list(c("HIV-TB", "Clinical TB")),
+    map_signif_level = TRUE)
+  
+  plotCounts(dds, gene="60", intgroup="Condition", normalized = FALSE, returnData=TRUE)
+  plotCounts(dds, gene="60", intgroup="Condition", normalized = TRUE, returnData=TRUE) %>% 
+    ggplot(aes(Condition, count)) + geom_boxplot(aes(fill=Condition)) + 
+    scale_y_log10() + ggtitle("ACTB") +  theme(plot.title = element_text(size = 30, hjust = 0.5)) + 
+    theme(axis.title.y = element_text(size = 20)) + theme(axis.title.x = element_text(size = 20)) + 
+    theme(legend.text = element_text(size = 15)) + theme(legend.title = element_text(size = 20)) + 
+    theme(axis.text = element_text(size = 15))+ geom_signif(
+      comparisons = list(c("HIV-TB", "Clinical TB")),
+      map_signif_level = TRUE)
+# geneID 710 SERPING1
+SERPING1 <- plotCounts(dds, gene="710", intgroup="Condition", normalized = TRUE, returnData=TRUE) %>% 
+  ggplot(aes(Condition, count)) + geom_boxplot(aes(fill=Condition)) + 
+  scale_y_log10() + ggtitle("SERPING1") +  theme(plot.title = element_text(size = 30, hjust = 0.5)) + 
+  theme(axis.title.y = element_text(size = 20)) + theme(axis.title.x = element_text(size = 20)) + 
+  theme(legend.text = element_text(size = 15)) + theme(legend.title = element_text(size = 20)) + 
+  theme(axis.text = element_text(size = 15)) + geom_signif(
+    comparisons = list(c("HIV-TB", "Clinical TB")),
+    map_signif_level = TRUE)
+
+# geneID 163351 GBP6
+GBP6 <-plotCounts(dds, gene="163351", intgroup="Condition", normalized = TRUE, returnData=TRUE) %>% 
+  ggplot(aes(Condition, count)) + geom_boxplot(aes(fill=Condition)) + 
+  scale_y_log10() + ggtitle("GBP6") +  theme(plot.title = element_text(size = 30, hjust = 0.5)) + 
+  theme(axis.title.y = element_text(size = 20)) + theme(axis.title.x = element_text(size = 20)) + 
+  theme(legend.text = element_text(size = 15)) + theme(legend.title = element_text(size = 20)) + 
+  theme(axis.text = element_text(size = 15))  + geom_signif(
+    comparisons = list(c("HIV-TB", "Clinical TB")),
+    map_signif_level = TRUE)
+
+# geneID 714 C1QC
+C1QC <- plotCounts(dds, gene="714", intgroup="Condition", normalized = TRUE, returnData=TRUE) %>% 
+  ggplot(aes(Condition, count)) + geom_boxplot(aes(fill=Condition)) + 
+  scale_y_log10() + ggtitle("C1QC") +  theme(plot.title = element_text(size = 30, hjust = 0.5)) + 
+  theme(axis.title.y = element_text(size = 20)) + theme(axis.title.x = element_text(size = 20)) + 
+  theme(legend.text = element_text(size = 15)) + theme(legend.title = element_text(size = 20)) + 
+  theme(axis.text = element_text(size = 15)) + geom_signif(
+    comparisons = list(c("HIV-TB", "Clinical TB")),
+    map_signif_level = TRUE)
+
+#geneID 118932 ANKRD22
+ANKRD22 <- plotCounts(dds, gene="118932", intgroup="Condition", normalized = TRUE, returnData=TRUE) %>% 
+  ggplot(aes(Condition, count)) + geom_boxplot(aes(fill=Condition)) + 
+  scale_y_log10() + ggtitle("ANKRD22") +  theme(plot.title = element_text(size = 30, hjust = 0.5)) + 
+  theme(axis.title.y = element_text(size = 20)) + theme(axis.title.x = element_text(size = 20)) + 
+  theme(legend.text = element_text(size = 15)) + theme(legend.title = element_text(size = 20)) + 
+  theme(axis.text = element_text(size = 15)) + geom_signif(
+    comparisons = list(c("HIV-TB", "Clinical TB")),
+    map_signif_level = TRUE)
+
+# geneID 51513 ETV7
+ETV7 <- plotCounts(dds, gene="51513", intgroup="Condition", normalized = TRUE, returnData=TRUE) %>% 
+  ggplot(aes(Condition, count)) + geom_boxplot(aes(fill=Condition)) + 
+  scale_y_log10() + ggtitle("ETV7") +  theme(plot.title = element_text(size = 30, hjust = 0.5)) + 
+  theme(axis.title.y = element_text(size = 20)) + theme(axis.title.x = element_text(size = 20)) + 
+  theme(legend.text = element_text(size = 15)) + theme(legend.title = element_text(size = 20)) + 
+  theme(axis.text = element_text(size = 15)) + geom_signif(
+    comparisons = list(c("HIV-TB", "Clinical TB")),
+    map_signif_level = TRUE)
+}
+figure <- ggarrange(BATF2, SERPING1, GBP6, C1QC, ANKRD22, ETV7,  
+                    labels = c("A", "B", "C", "D", "E", "F"),
+                    ncol = 3, nrow = 2, common.legend = TRUE, legend="right")
+figure
