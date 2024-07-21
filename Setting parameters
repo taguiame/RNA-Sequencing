@@ -1,0 +1,20 @@
+library(DESeq2)
+
+#clean up results file
+res <- res[order(res$padj),]
+res <- na.omit(res)
+res <-as.data.frame(res)
+
+#Contrasting Conditions ####
+resHIVTB <- results(dds, contrast = c("Condition", "HIV-TB", "Non-infected"))
+resHIV <- results(dds, contrast = c("Condition", "HIV", "Non-infected"))
+resTB <- results(dds, contrast = c("Condition", "Clinical TB", "Non-infected"))
+
+resHIVTB_TB <-results(dds, contrast = c("Condition", "HIV-TB", "Clinical TB"))
+resHIVTB_HIV <- results (dds, contrast = c("Condition", "HIV-TB", "HIV"))
+
+# Setting the parameters based on fold change and adjusted p value ####
+logFC = 1.5
+padjust = 0.05
+
+# parameters are based on readings and preferences
