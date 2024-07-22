@@ -1,6 +1,10 @@
 library(ggvenn)
 library(ggplot2)
 
+# Setting the parameters based on fold change and adjusted p value ####
+logFC = 1.5
+padjust = 0.05
+
 # Venn Diagram ####
 #upregulated
 Up_venn_DEG <- data.frame(HIV_TB = resHIVTB$padj <= padjust & resHIVTB$log2FoldChange >= logFC,
