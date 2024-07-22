@@ -3,6 +3,7 @@ select_UP_HIVTB <- dplyr::select(up_resHIVTB_df, Symbol)
 select_UP_HIV <- dplyr::select(up_resHIV_df, Symbol)
 select_UP_TB <- dplyr::select(up_resTB_df, Symbol)
 
+
 # Shared across all conditions - upregulated
 shared_upregulated1 <- dplyr::inner_join(select_UP_HIVTB, select_UP_HIV, by = 'Symbol')
 shared_upregulated2 <- dplyr::inner_join(shared_upregulated1, select_UP_TB, by = 'Symbol')
