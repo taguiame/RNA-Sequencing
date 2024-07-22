@@ -1,0 +1,35 @@
+library(ggvenn)
+library(ggplot2)
+
+# Venn Diagram ####
+#upregulated
+Up_venn_DEG <- data.frame(HIV_TB = resHIVTB$padj <= padjust & resHIVTB$log2FoldChange >= logFC,
+                          HIV =  resHIV$padj <= padjust & resHIV$log2FoldChange >= logFC,
+                          TB =  resTB$padj <= padjust & resTB$log2FoldChange >= logFC)
+
+names(Up_venn_DEG) <- c(" Tuberculosis in PLHIV vs. Non-infected", "HIV vs. Non-infected", "Tuberculosis vs. Non-infected")
+
+Up_venn_DEG <- na.omit(Up_venn_DEG)
+ggvenn(Up_venn_DEG, 
+       fill_color = c("steelblue", "firebrick", "peachpuff"),
+       stroke_color = "transparent",
+       set_name_size = 4.5,
+       text_size = 6) + 
+       ggtitle("[A] Upregulated Genes") +
+       theme(plot.title = element_text(size = 20, hjust = 0.5))
+
+#downregulated 
+Down_venn_DEG <- data.frame(HIV_TB =  resHIVTB$padj <= padjust & resHIVTB$log2FoldChange <= -logFC,
+                            HIV =  resHIV$padj <= padjust & resHIV$log2FoldChange <= -logFC,
+                            TB =  resTB$padj <= padjust & resTB$log2FoldChange <= -logFC)
+
+names(Down_venn_DEG) <- c(" Tuberculosis in PLHIV vs. Non-infected", "HIV vs. Non-infected", "Tuberculosis vs. Non-infected")
+
+Down_venn_DEG <- na.omit(Down_venn_DEG)
+ggvenn(Down_venn_DEG,
+       fill_color = c("steelblue", "firebrick", "peachpuff"),
+       stroke_color = "transparent",
+       set_name_size = 4.5,
+       text_size = 6) + 
+       ggtitle("[B] Downregulated Genes") +
+       theme(plot.title = element_text(size = 20, hjust = 0.5))
